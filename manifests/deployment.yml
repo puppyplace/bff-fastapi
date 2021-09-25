@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: bfffastapi 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bfffastapi
+  template:
+    metadata:
+      labels:
+        app: bfffastapi 
+    spec:
+      containers:
+        - name: bfffastapi 
+          image: puppyplace.azurecr.io/bfffastapi
+          ports:
+          - containerPort: 80
