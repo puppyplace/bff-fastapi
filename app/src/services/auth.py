@@ -1,4 +1,4 @@
-from src.models.user import User
+from src.models.user import User, UserIdentify
 from src.models.verifier import Verifier
 
 from dotenv import dotenv_values
@@ -48,7 +48,17 @@ class AuthService():
         r = requests.post(self.url + "sendOobCode?key={}".format(self.apiId), headers=headers, data=details)
 
         return self.resolve(r)
-    
+
+    def changePassword(self, user: UserIdentify):
+
+        """
+        mudar a senha
+        """
+        
+        details = '{ "requestType": "PASSWORD_RESET", "email": "' + user.email + '" }'
+        r = requests.post(self.url + "sendOobCode?key={}".format(self.apiId),data=details)
+
+        return self.resolve(r)
 
     # trata o resultado de cada chamada da api
     def resolve(self, r):

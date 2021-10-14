@@ -1,4 +1,4 @@
-from src.models.user import User
+from src.models.user import User, UserIdentify
 from src.models.verifier import Verifier
 from src.services.auth import AuthService
 
@@ -29,3 +29,12 @@ def router(app):
         """
 
         return AuthService().verifier(token)
+   
+    @app.post("/reset-password")
+    def resetPassword(user: UserIdentify):
+
+        """
+        verifica o email
+        """
+
+        return AuthService().changePassword(user)
