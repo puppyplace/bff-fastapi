@@ -16,14 +16,14 @@ class AuthService():
         
     
     # cadastro de usuario
-    def sign_in(self, user: User):
+    def sign_up(self, user: User):
         details = { 'email': user.email, 'password': user.password, 'returnSecureToken': True }
         r = requests.post(self.url + "signUp?key={}".format(self.apiId),data=details)
         
         return self.resolve(r)
 
     # login no firebase
-    def sign_up(self, user: User):
+    def sign_in(self, user: User):
 
         """
         login no firebase

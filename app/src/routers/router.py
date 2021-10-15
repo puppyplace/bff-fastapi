@@ -7,7 +7,7 @@ def router(app):
     def sign_in(user: User):
 
         """
-        cadastro de usuario
+        login no firebase
         """
 
         return AuthService().sign_in(user)
@@ -16,7 +16,7 @@ def router(app):
     def sign_up(user: User):
 
         """
-        login no firebase
+        cadastro de usuario
         """
 
         return AuthService().sign_up(user)
